@@ -15,17 +15,21 @@ function rollDice() {
     playerRoll2 = getRoll();
     computerRoll1 = getRoll();
     computerRoll2 = getRoll();
-    return (playerRoll1, playerRoll2, computerRoll1, computerRoll2);
+    // return (playerRoll1, playerRoll2, computerRoll1, computerRoll2);
 }
 function getRoll() {
     return Math.floor(Math.random() * 6) + 1;
 }
+function displayRolls () {
+    document.getElementById("playerDice").innerText = `Player rolled a ${playerRoll1} and a ${playerRoll2}`;
+    document.getElementById("computerDice").innerText = `Computer rolled a ${computerRoll1} and a ${computerRoll2}`;
 
+}
 // /*********** function to calculate the result, determine winner, and update the score ***************/
 function calculateScore(playerRoll1, playerRoll2, computerRoll1, computerRoll2) {
     playerTotal = playerRoll1 + playerRoll2;
     computerTotal = computerRoll1 + computerRoll2;
-    return (playerTotal, computerTotal);
+   
 }
 
 
@@ -44,10 +48,12 @@ function displayResults(playerTotal, computerTotal, result) {
 
 
 
+
 // Function to handle each round of the game
 function playRound() {
-    rollDice()
+    rollDice();
     
+    displayRolls();
     
     // const playerTotal = playerRoll1 + playerRoll2;
     // const computerTotal = computerRoll1 + computerRoll2;
