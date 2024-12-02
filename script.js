@@ -20,20 +20,29 @@ function rollDice() {
   calculateScore();
 }
 
-
 /*********** function to calculate the result, determine winner, and update the score ***************/
 function calculateScore() {
     playerTotal = playerRoll1 + playerRoll2;
     computerTotal = computerRoll1 + computerRoll2;
     document.getElementById("playerRoll").innerHTML = `Player Roll: ${playerTotal}`;
     document.getElementById("computerRoll").innerHTML = `Computer Roll: ${computerTotal}`;
-   
+    displayResults();
 }
-
-
 
 /*********** function to display the current roll and scores ***************/
 function displayResults() {
+    if (playerTotal > computerTotal) {
+        document.getElementById("gameResult").innerHTML = "Player wins!";
+        playerScore += 1;
+    } else if (playerTotal < computerTotal) {
+        document.getElementById("gameResult").innerHTML = "Computer wins!";
+        computerScore += 1;
+    } else {
+        document.getElementById("gameResult").innerHTML = "It's a Tie!";
+    }
+    document.getElementById("playerScore").innerHTML = `Player Score: ${playerScore}`;
+    document.getElementById("computerScore").innerHTML = `Computer Score: ${computerScore}`;
+
     
 
 }
