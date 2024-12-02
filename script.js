@@ -7,11 +7,16 @@ let computerTotal = 0;
 let playerScore = 0;
 let computerScore = 0;
 
-
+document.getElementById('rollButton').addEventListener('click', rollDice);
 
 /*********** function to generate random dice rolls ***************/
 function rollDice() {
-  
+  playerRoll1 = Math.floor(Math.random() * 6) + 1;
+  playerRoll2 = Math.floor(Math.random() * 6) + 1;
+  computerRoll1 = Math.floor(Math.random() * 6) + 1;
+  computerRoll2 = Math.floor(Math.random() * 6) + 1;
+  document.getElementById('playerDice').innerHTML = `Player rolled a ${playerRoll1} and a ${playerRoll2}`;
+  document.getElementById('computerDice').innerHTML = `Computer rolled a ${computerRoll1} and a ${computerRoll2}`;
 }
 /*********** function to calculate the result, determine winner, and update the score ***************/
 function calculateScore() {
